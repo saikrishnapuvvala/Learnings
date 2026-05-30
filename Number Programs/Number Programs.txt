@@ -1,0 +1,385 @@
+import java.util.*;
+
+public class Main {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // 1. Reverse Number
+    static void reverseNumber() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int rev = 0, temp = n;
+
+        while (temp > 0) {
+            rev = rev * 10 + temp % 10;
+            temp /= 10;
+        }
+
+        System.out.println("Reverse = " + rev);
+    }
+
+    // 2. Palindrome
+    static void palindrome() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int rev = 0, temp = n;
+
+        while (temp > 0) {
+            rev = rev * 10 + temp % 10;
+            temp /= 10;
+        }
+
+        if (rev == n)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+
+    // 3. Armstrong
+    static void armstrong() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int sum = 0, temp = n;
+
+        while (temp > 0) {
+            int d = temp % 10;
+            sum += d * d * d;
+            temp /= 10;
+        }
+
+        if (sum == n)
+            System.out.println("Armstrong Number");
+        else
+            System.out.println("Not Armstrong Number");
+    }
+
+    // 4. Prime
+    static void prime() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        if (n <= 1) {
+            System.out.println("Not Prime");
+            return;
+        }
+
+        boolean prime = true;
+
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) {
+                prime = false;
+                break;
+            }
+        }
+
+        System.out.println(prime ? "Prime" : "Not Prime");
+    }
+
+    // 5. Factorial
+    static void factorial() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        long fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+
+        System.out.println("Factorial = " + fact);
+    }
+
+    // 6. Fibonacci Series
+    static void fibonacci() {
+        System.out.print("Enter number of terms: ");
+        int n = sc.nextInt();
+
+        int a = 0, b = 1;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        System.out.println();
+    }
+
+    // Strong Number Helper
+    static int factorialDigit(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++)
+            fact *= i;
+        return fact;
+    }
+
+    // 7. Strong Number
+    static void strongNumber() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sum = 0, temp = n;
+
+        while (temp > 0) {
+            int d = temp % 10;
+            sum += factorialDigit(d);
+            temp /= 10;
+        }
+
+        System.out.println(sum == n ? "Strong Number" : "Not Strong Number");
+    }
+
+    // 8. Perfect Number
+    static void perfectNumber() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sum = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0)
+                sum += i;
+        }
+
+        System.out.println(sum == n ? "Perfect Number" : "Not Perfect Number");
+    }
+
+    // 9. Neon Number
+    static void neonNumber() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sq = n * n;
+        int sum = 0;
+
+        while (sq > 0) {
+            sum += sq % 10;
+            sq /= 10;
+        }
+
+        System.out.println(sum == n ? "Neon Number" : "Not Neon Number");
+    }
+
+    // 10. Automorphic Number
+    static void automorphic() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sq = n * n;
+
+        if (String.valueOf(sq).endsWith(String.valueOf(n)))
+            System.out.println("Automorphic Number");
+        else
+            System.out.println("Not Automorphic Number");
+    }
+
+    // 11. Harshad Number
+    static void harshad() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sum = 0, temp = n;
+
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+
+        System.out.println(n % sum == 0 ? "Harshad Number" : "Not Harshad Number");
+    }
+
+    // 12. Sum of Digits
+    static void sumOfDigits() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int sum = 0;
+
+        while (n > 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+
+    // 13. Product of Digits
+    static void productOfDigits() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int product = 1;
+
+        while (n > 0) {
+            product *= (n % 10);
+            n /= 10;
+        }
+
+        System.out.println("Product = " + product);
+    }
+
+    // 14. Count Digits
+    static void countDigits() {
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        int count = 0;
+
+        while (n > 0) {
+            count++;
+            n /= 10;
+        }
+
+        System.out.println("Digits = " + count);
+    }
+
+    // 15. Power
+    static void power() {
+        System.out.print("Enter base: ");
+        int b = sc.nextInt();
+
+        System.out.print("Enter exponent: ");
+        int e = sc.nextInt();
+
+        System.out.println("Result = " + (long)Math.pow(b, e));
+    }
+
+    // 16. Swap Numbers
+    static void swapNumbers() {
+        System.out.print("Enter a: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter b: ");
+        int b = sc.nextInt();
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+
+    // 17. GCD and LCM
+    static void gcdLcm() {
+        System.out.print("Enter a: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter b: ");
+        int b = sc.nextInt();
+
+        int gcd = 1;
+
+        for (int i = 1; i <= a && i <= b; i++) {
+            if (a % i == 0 && b % i == 0)
+                gcd = i;
+        }
+
+        int lcm = (a * b) / gcd;
+
+        System.out.println("GCD = " + gcd);
+        System.out.println("LCM = " + lcm);
+    }
+
+    // 18. Decimal to Binary
+    static void decimalToBinary() {
+        System.out.print("Enter decimal number: ");
+        int n = sc.nextInt();
+
+        System.out.println("Binary = " + Integer.toBinaryString(n));
+    }
+
+    // 19. Even or Odd
+    static void evenOdd() {
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        System.out.println(n % 2 == 0 ? "Even" : "Odd");
+    }
+
+    // 20. Binary to Decimal
+    static void binaryToDecimal() {
+        System.out.print("Enter binary number: ");
+        String binary = sc.next();
+
+        int decimal = Integer.parseInt(binary, 2);
+
+        System.out.println("Decimal = " + decimal);
+    }
+
+    // 21. ASCII Value
+    static void asciiValue() {
+        System.out.print("Enter character: ");
+        char ch = sc.next().charAt(0);
+
+        System.out.println("ASCII = " + (int) ch);
+    }
+
+    // 22. Leap Year
+    static void leapYear() {
+        System.out.print("Enter year: ");
+        int year = sc.nextInt();
+
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            System.out.println("Leap Year");
+        else
+            System.out.println("Not Leap Year");
+    }
+
+    // 23. Nth Fibonacci
+    static void nthFibonacci() {
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+
+        int a = 0, b = 1;
+
+        for (int i = 0; i < n - 1; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+
+        System.out.println("Nth Fibonacci = " + a);
+    }
+
+    // 24. Trailing Zeros in Factorial
+    static void trailingZeros() {
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int count = 0;
+
+        for (int i = 5; i <= n; i *= 5)
+            count += n / i;
+
+        System.out.println("Trailing Zeros = " + count);
+    }
+
+    public static void main(String[] args) {
+
+        reverseNumber();
+        palindrome();
+        armstrong();
+        prime();
+        factorial();
+        fibonacci();
+        strongNumber();
+        perfectNumber();
+        neonNumber();
+        automorphic();
+        harshad();
+        sumOfDigits();
+        productOfDigits();
+        countDigits();
+        power();
+        swapNumbers();
+        gcdLcm();
+        decimalToBinary();
+        evenOdd();
+        binaryToDecimal();
+        asciiValue();
+        leapYear();
+        nthFibonacci();
+        trailingZeros();
+    }
+}
