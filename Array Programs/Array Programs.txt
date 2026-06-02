@@ -1,0 +1,316 @@
+import java.util.*;
+
+class Main {
+
+    public static void main(String[] args) {
+
+        int[] arr = {2, 3, 4, 1, 6, 4, 2, 5};
+
+        largest(arr);
+        smallest(arr);
+        secondLargest(arr.clone());
+        secondSmallest(arr.clone());
+        reverseArray(arr);
+        ascending(arr.clone());
+        descending(arr.clone());
+        sumOfElements(arr);
+        duplicates(arr);
+        frequency(arr);
+        removeDuplicates(arr);
+
+        int[] missingArr = {1, 2, 3, 4, 5, 7};
+        missingNumber(missingArr, 7);
+
+        int[] arr1 = {1, 2, 3, 4};
+        int[] arr2 = {5, 6, 7, 8};
+        mergeArrays(arr1, arr2);
+
+        rightRotate();
+        leftRotate();
+        commonElements();
+        moveZeros();
+        linearSearch();
+        binarySearch();
+    }
+
+    static void largest(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+        }
+        System.out.println("Largest: " + max);
+    }
+
+    static void smallest(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
+        }
+        System.out.println("Smallest: " + min);
+    }
+
+    static void secondLargest(int[] arr) {
+        int temp;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        System.out.println("Second Largest: " + arr[arr.length - 2]);
+    }
+
+    static void secondSmallest(int[] arr) {
+        int temp;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] < arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        System.out.println("Second Smallest: " + arr[arr.length - 2]);
+    }
+
+    static void reverseArray(int[] arr) {
+        System.out.print("Reverse Array: ");
+        int[] rev = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            rev[i] = arr[arr.length - 1 - i];
+        }
+        for (int num : rev)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void ascending(int[] arr) {
+        int temp;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        System.out.print("Ascending: ");
+        for (int num : arr)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void descending(int[] arr) {
+        int temp;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] < arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        System.out.print("Descending: ");
+        for (int num : arr)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void sumOfElements(int[] arr) {
+        int sum = 0;
+        for (int num : arr)
+            sum += num;
+
+        System.out.println("Sum: " + sum);
+    }
+
+    static void duplicates(int[] arr) {
+        System.out.print("Duplicates: ");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.print(arr[i] + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    static void frequency(int[] arr) {
+        System.out.println("Frequency:");
+        ArrayList<Integer> visited = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (visited.contains(arr[i]))
+                continue;
+
+            int count = 1;
+
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j])
+                    count++;
+            }
+
+            visited.add(arr[i]);
+            System.out.println(arr[i] + " -> " + count);
+        }
+    }
+
+    static void removeDuplicates(int[] arr) {
+        System.out.print("Unique Elements: ");
+
+        for (int i = 0; i < arr.length; i++) {
+            boolean dup = false;
+
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    dup = true;
+                    break;
+                }
+            }
+
+            if (!dup)
+                System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    static void missingNumber(int[] arr, int n) {
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+
+        for (int num : arr)
+            actualSum += num;
+
+        System.out.println("Missing Number: " + (expectedSum - actualSum));
+    }
+
+    static void mergeArrays(int[] arr1, int[] arr2) {
+        int[] merged = new int[arr1.length + arr2.length];
+
+        for (int i = 0; i < arr1.length; i++)
+            merged[i] = arr1[i];
+
+        for (int i = 0; i < arr2.length; i++)
+            merged[arr1.length + i] = arr2[i];
+
+        System.out.print("Merged Array: ");
+        for (int num : merged)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void rightRotate() {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        int last = arr[arr.length - 1];
+
+        for (int i = arr.length - 1; i > 0; i--)
+            arr[i] = arr[i - 1];
+
+        arr[0] = last;
+
+        System.out.print("Right Rotate: ");
+        for (int num : arr)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void leftRotate() {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        int first = arr[0];
+
+        for (int i = 0; i < arr.length - 1; i++)
+            arr[i] = arr[i + 1];
+
+        arr[arr.length - 1] = first;
+
+        System.out.print("Left Rotate: ");
+        for (int num : arr)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void commonElements() {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {3, 4, 5, 6, 7};
+
+        System.out.print("Common Elements: ");
+
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2.length; j++) {
+                if (arr1[i] == arr2[j])
+                    System.out.print(arr1[i] + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    static void moveZeros() {
+        int[] arr = {1, 0, 2, 0, 3, 0};
+
+        int index = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0)
+                arr[index++] = arr[i];
+        }
+
+        while (index < arr.length)
+            arr[index++] = 0;
+
+        System.out.print("Move Zeros: ");
+        for (int num : arr)
+            System.out.print(num + " ");
+        System.out.println();
+    }
+
+    static void linearSearch() {
+        int[] arr = {1, 2, 3, 4, 5};
+        int target = 4;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                System.out.println("Linear Search: Found at index " + i);
+                return;
+            }
+        }
+
+        System.out.println("Linear Search: Not Found");
+    }
+
+    static void binarySearch() {
+        int[] arr = {10, 20, 30, 40, 50, 60};
+        int target = 40;
+
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (arr[mid] == target) {
+                System.out.println("Binary Search: Found at index " + mid);
+                return;
+            } else if (arr[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        System.out.println("Binary Search: Not Found");
+    }
+}
