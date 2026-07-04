@@ -1,0 +1,214 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient(135deg, #0f172a, #1e3a8a, #38bdf8);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.login-card{
+    width:450px;
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+.login-card:hover {
+    transform: translateY(-3px);
+}
+
+.login-card h2 {
+    text-align:center;
+    margin-bottom:25px;
+    color:#1e293b;
+    font-size:28px;
+}
+.form-control {
+   width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+.form-control:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 8px rgba(79,70,229,0.3);
+    outline: none;
+} 
+.btn-primary{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#0f172a,#1e40af,#2563eb);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.btn-primary:hover{
+    opacity:.95;
+}
+.toggle-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.toggle-text button {
+    background: none;
+    border: none;
+    color: #4f46e5;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Full Page Background */
+.welcome-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
+
+    padding: 20px;
+}
+
+/* Glass Card */
+.welcome-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    animation: fadeIn 1s ease;
+}
+
+/* Rocket Icon */
+.welcome-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+
+    animation: bounce 2s infinite;
+}
+
+/* Heading */
+.welcome-card h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Paragraph */
+.welcome-card p {
+    color: #dbeafe;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+/* Status Badge */
+.welcome-badge {
+    display: inline-block;
+
+    padding: 12px 20px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    font-weight: 600;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.logout-btn{
+  margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+
+    background: #ef4444;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+.head{
+  background-color: rgb(205, 235, 245);
+  color:#1e3a8a;
+   border: 1px solid #1e3a8a;
+  border-radius:30px;
+  font-size:15px; 
+}
+.sign-but{
+   color: #fff;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius:10px; 
+}
+.btn-link{
+    text-decoration:none;
+    font-weight:600;
+}
+
+.btn-link:hover{
+    text-decoration:underline;
+}
+ 
